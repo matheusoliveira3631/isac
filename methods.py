@@ -1,5 +1,8 @@
 import wikipedia, time
+from twitter.main import tweet
+#setup
 wikipedia.set_lang("pt")
+#=================================><===============================#
 def define(word):
     try:
         text=wikipedia.summary(word)
@@ -46,3 +49,7 @@ def now():
     else:
         time_string=f'Hoje é {days.get(time_list[0])}, dia {time_list[1]} de {months.get(time_list[2])} de {time_list[3]}, e são {time_list[4]} horas e {time_list[5]} minutos'
     return time_string
+
+#=========================><========================#
+
+

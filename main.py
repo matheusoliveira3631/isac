@@ -61,4 +61,8 @@ class Cortana:
     def hour(self):
         time=now()
         self.speak(time)
+
+    def twitter(self, text, img):
+        tweet(text, img)
+        self.speak(f'tweetando: {text}')
             
