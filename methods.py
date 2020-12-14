@@ -1,4 +1,4 @@
-import wikipedia, time
+import wikipedia, time, threading
 from twitter.main import tweet
 #setup
 wikipedia.set_lang("pt")
@@ -50,6 +50,32 @@ def now():
         time_string=f'Hoje é {days.get(time_list[0])}, dia {time_list[1]} de {months.get(time_list[2])} de {time_list[3]}, e são {time_list[4]} horas e {time_list[5]} minutos'
     return time_string
 
+def timer(secs, *min, **kw):
+    n=secs
+    if kw:
+        function=kw.get('function')
+        args=kw.get('args')
+    if min:
+        if min[0]==():
+            pass
+        else:
+            n+=min[0][0]*60
+    while n>0:
+        #print(n)
+        time.sleep(1)
+        n-=1
+    #post count method
+    print('Finished counting')
+    function(args)
+
+def timer_start(secs, *min, **kw):
+    if kw:
+        thread_function=kw.get('function')
+        thread_args=kw.get('args')
+        x=threading.Thread(target=timer, args=(secs, min), kwargs={'function':thread_function, 'args':thread_args})
+    else:
+        x=threading.Thread(target=timer, args=(secs, min))
+    x.start()
 #=========================><========================#
 
 
