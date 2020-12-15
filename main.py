@@ -1,6 +1,7 @@
 from gtts import gTTS
 import playsound, os
-from methods import *
+from .methods import define, now, timer_start
+from .twitter.main import tweet
 num = 1
 class Cortana:
     def __init__(self, *lang, **kw):
@@ -48,7 +49,7 @@ class Cortana:
             self.speak("Olá, sou seu assistente virtual, como posso te ajudar hoje?")
 
 
-    def wait_for_speech():
+    def wait_for_speech(self):
         while True:
             order=str(input())
             return

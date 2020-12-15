@@ -8,7 +8,7 @@ if __name__ == "__main__":
     os.chdir(path)
     
 #setup
-with open('src\keys.json') as file:
+with open('src/keys.json') as file:
     keys=json.loads(file.readlines()[0])
     auth = tweepy.OAuthHandler(keys['api_key'], keys['api_secret'])
     auth.set_access_token(keys['access_token'], keys['access_secret'])

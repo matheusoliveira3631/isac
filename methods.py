@@ -1,5 +1,5 @@
 import wikipedia, time, threading
-from twitter.main import tweet
+from .twitter.main import tweet
 #setup
 wikipedia.set_lang("pt")
 #=================================><===============================#
