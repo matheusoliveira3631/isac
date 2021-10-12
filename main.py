@@ -1,5 +1,4 @@
 import os
-from multiprocess import Process
 from threading import Thread
 
 import playsound
@@ -61,7 +60,7 @@ class Cortana:
                     break
             return
 
-        x=Process(target=wait_speech) 
+        x=Thread(target=wait_speech) 
         x.start()
         wait_input()
         #sync(x,y)
