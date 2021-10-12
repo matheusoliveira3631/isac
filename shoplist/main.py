@@ -4,17 +4,27 @@ import threading
 import plotly.graph_objects as go
 from tinydb import TinyDB, Query
 
-from display import image_viewer
-shopping=TinyDB('shopping.json')
+from .display import image_viewer
+#======================><==============================#
+if __name__ != "__main__":
+    path=os.getcwd()
+    np=path+'/src'
+    os.chdir(np)
 #======================><==============================#
 class shopping_list:
     
-    def __init__(self):
-        pass
+    def __init__(self, name:str):
+        global db, shopping
+        db=name+'.json'
+        shopping=TinyDB(db)
+        return 
     
-    def new(self):
+    def clear(self):
         shopping.truncate()
         return True
+
+    def delete(self):
+        os.remove(db)
 
     def add(self, item, qty):
         shopping.insert({'item':item, 'quantity':qty})
